@@ -1,0 +1,39 @@
+﻿@page "/"
+@using WasmJWTAuth.Models
+@using WasmJWTAuth.Services
+@using Microsoft.AspNetCore.Components.QuickGrid
+@attribute [Authorize]
+@inject IUserService UserService
+
+<div class="card mt-4">
+  <h4 class="card-header">Logged in with JWT</h4>
+  <div class="card-body">
+    <h6>Users: </h6>
+    @if (loading)
+    {
+      <div class="spinner-border spinner-border-sm"></div>
+    }
+    @if (users != null)
+    {
+      <QuickGrid Items="@users" class="table table-striped">
+        <PropertyColumn Property="@(u => u.Id)" Sortable="true" />
+        <PropertyColumn Property="@(u => u.FirstName)" Sortable="true" />
+        <PropertyColumn Property="@(u => u.LastName)" Sortable="true" />
+        <PropertyColumn Property="@(u => u.JoinDate)" Format="dd-MM-yyyy" Sortable="true" />
+      </QuickGrid>
+    }
+  </div>
+</div>
+
+@code {
+  private bool loading;
+  private IQueryable<User> users;
+  
+  protected override async Task OnInitializedAsync()
+  {
+    loading = true;
+    users = (await UserService.GetAllUsers()).AsQueryable();
+    loading = false;
+  }
+
+}

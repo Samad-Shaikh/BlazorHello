@@ -1,0 +1,10 @@
+@page "/logout"
+@using WasmJWTAuth.Services
+@inject IAuthenticationService AuthenticationService
+
+@code {
+  protected override async void OnInitialized()
+  {
+    await AuthenticationService.Logout();
+  }
+}
