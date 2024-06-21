@@ -1,0 +1,12 @@
+[
+    {
+        "id": "fd2f5d79f5b1da5c",
+        "type": "comment",
+        "z": "baafa5a400e3fb39",
+        "name": "Please Add your \"local\" ip address to the API call \\n if using Node-Red from a Docker container!!",
+        "info": "",
+        "x": 580,
+        "y": 80,
+        "wires": []
+    }
+]
