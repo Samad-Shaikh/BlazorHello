@@ -4,7 +4,7 @@ Blazor WASM client only with JWT Auth via API
 ## Node-RED Flow
 1. Import Flow.json in Rode-NED
 2. Click on inject to execute the flow
-![Alt text](flow.png "Node-RED Flow")
+![flow.png](https://github.com/Samad-Shaikh/BlazorHello/blob/master/Flow.png) "Node-RED Flow")
 
 
 ## Issues
